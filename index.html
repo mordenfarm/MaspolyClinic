@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masvingo Poly Clinic</title>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mPolyGreen: '#4EB577',
+                        mPolyYellow: '#F5DD5F',
+                        mPolyBlue: '#163959',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* M3 PERFECT CORNERS */
+        * { border-radius: 0 !important; } 
+        .rounded-full, .rounded-full *, [class*="rounded-full"], .dynamic-island { border-radius: 9999px !important; }
+
+        body { background: #f8fafc; color: #1B1B1F; font-family: 'Inter', sans-serif; }
+        .landing-bg {
+            background-image: url('https://i.ibb.co/rRFmYkkZ/mapspoly.jpg');
+            background-size: cover; background-position: center; position: relative;
+        }
+        .landing-bg::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(22, 57, 89, 0.98) 100%);
+            z-index: 1;
+        }
+        .gradient-mesh { background: radial-gradient(at 0% 0%, rgba(22, 57, 89, 0.05) 0px, transparent 50%); }
+        .card-shadow { box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.04); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* Body Map Styles */
+        .body-part { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 2; transition: all 0.3s ease; cursor: pointer; }
+        .body-part:hover { fill: #dbeafe; stroke: #93c5fd; }
+        .body-part.active { fill: #163959; stroke: #F5DD5F; stroke-width: 3; animation: pulse 2s infinite; }
+        .skin { fill: #ffd4b3; }
+        .outline { stroke: #b8956e; stroke-width: 2; fill: none; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+        .animate-slide-left { animation: slideInLeft 0.5s ease-out forwards; }
+        .animate-slide-right { animation: slideInRight 0.5s ease-out forwards; }
+
+        /* PRINT STYLES FOR OFFICIAL DOWNLOAD */
+        @media print {
+            body { background: white !important; }
+            .print\:hidden { display: none !important; }
+            .print\:static { position: static !important; }
+            .print\:h-auto { height: auto !important; }
+            .print\:p-0 { padding: 0 !important; }
+            .print\:shadow-none { box-shadow: none !important; }
+            .print\:border-none { border: none !important; }
+            
+            /* Center the report on the page */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            .max-w-4xl {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 40px !important;
+            }
+            /* Ensure colors are printed */
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "html2pdf.js": "https://esm.sh/html2pdf.js@^0.14.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Masvingo Poly Clinic Portal",
+  "description": "A student-centric clinical portal for Masvingo Polytechnic featuring appointment scheduling, mental health modules, and secure medical excuse generation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
